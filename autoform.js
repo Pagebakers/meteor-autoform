@@ -1197,6 +1197,11 @@ function getFieldsValues(fields) {
     var tagName = field.tagName || "";
     tagName = tagName.toLowerCase();
 
+    // Handle disabled
+    if (field.hasAttribute("disabled")) {
+      return;
+    }
+
     // Handle select
     if (tagName === "select") {
       if (val === "true") { //boolean select
